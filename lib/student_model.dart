@@ -2,7 +2,7 @@
 
 class Student {
   final int? id;
-  final String firstName;
+  final String name;
   final String lastName;
   final String course;
   final String age;
@@ -11,7 +11,7 @@ class Student {
 
   Student({
     this.id,
-    required this.firstName,
+    required this.name,
     required this.lastName,
     required this.course,
     required this.age,
@@ -19,14 +19,14 @@ class Student {
     required this.imagePath,
   });
   String getfullname() {
-    return '$firstName $lastName';
+    return '$name $lastName';
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'name': firstName,
-      'name': lastName,
+      'name': name,
+      'last_name': lastName,
       'course': course,
       'age': age,
       'phone': phone,
@@ -37,8 +37,8 @@ class Student {
   factory Student.fromMap(Map<String, dynamic> map) {
     return Student(
       id: map['id'],
-      firstName: map['First name'],
-      lastName: map['Last name'],
+      name: map['name'],
+      lastName: map['last_name'],
       course: map['course'],
       age: map['age'],
       phone: map['phone'],

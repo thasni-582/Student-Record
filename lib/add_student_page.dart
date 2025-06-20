@@ -19,17 +19,18 @@ class _AddStudentPageState extends State<AddStudentPage> {
   void initState() {
     super.initState();
     if (widget.student != null) {
-      _nameController.text = widget.student!.firstName;
-      _nameController.text = widget.student!.lastName;
+      _nameController.text = widget.student!.name;
+      _snameController.text = widget.student!.lastName;
       _courseController.text = widget.student!.course;
       _ageController.text = widget.student!.age;
       _phoneController.text = widget.student!.phone;
-      widget.student!.imagePath;
+      selectedImagePath = widget.student!.imagePath;
     }
   }
 
   final _formKey = GlobalKey<FormState>(); // Step 1: Form Key
   final _nameController = TextEditingController();
+  final _snameController = TextEditingController();
   final _courseController = TextEditingController();
   final _ageController = TextEditingController();
   final _phoneController = TextEditingController();
@@ -72,6 +73,20 @@ class _AddStudentPageState extends State<AddStudentPage> {
                   controller: _nameController,
                   decoration: InputDecoration(
                     labelText: 'Student Name',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Please enter student Name';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 16),
+                TextFormField(
+                  controller: _snameController,
+                  decoration: InputDecoration(
+                    labelText: 'Second Name',
                     border: OutlineInputBorder(),
                   ),
                   validator: (value) {
@@ -189,8 +204,8 @@ class _AddStudentPageState extends State<AddStudentPage> {
 
                       final student = Student(
                         id: widget.student?.id,
-                        firstName: _nameController.text,
-                        lastName: _nameController.text,
+                        name: _nameController.text,
+                        lastName: _snameController.text,
                         course: _courseController.text,
                         age: _ageController.text,
                         phone: _phoneController.text,
