@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
   void _filterStudents(String query) {
     final results = students
         .where((student) =>
-            student.firstName.toLowerCase().contains(query.toLowerCase()) ||
+            student.name.toLowerCase().contains(query.toLowerCase()) ||
             student.course.toLowerCase().contains(query.toLowerCase()))
         .toList();
 
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                                         FileImage(File(student.imagePath)),
                                   ),
                                   SizedBox(height: 10),
-                                  Text(student.firstName),
+                                  Text(student.name),
                                 ],
                               ),
                             ),
@@ -176,7 +176,8 @@ class _HomePageState extends State<HomePage> {
                                 backgroundImage:
                                     FileImage(File(student.imagePath)),
                               ),
-                              title: Text(student.firstName),
+                              title:
+                                  Text("${student.name} ${student.lastName}"),
                               subtitle: Text(student.course),
                               trailing: Row(
                                 mainAxisSize: MainAxisSize.min,

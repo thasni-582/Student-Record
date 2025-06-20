@@ -17,7 +17,7 @@ class StudentDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(student.firstName),
+        title: Text(student.name),
         actions: [
           IconButton(
             icon: const Icon(Icons.delete),
@@ -57,7 +57,7 @@ class StudentDetailPage extends StatelessWidget {
                 ? Image.file(File(student.imagePath), height: 200)
                 : const Icon(Icons.person, size: 150),
             const SizedBox(height: 20),
-            Text("Name: ${student.firstName}",
+            Text("Name: ${student.name}",
                 style: const TextStyle(fontSize: 18)),
             const SizedBox(height: 10),
             Text(

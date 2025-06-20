@@ -32,8 +32,8 @@ class DbHelper {
         await db.execute(
             //run sql command
             '''CREATE TABLE students(id INTEGER PRIMARY KEY AUTOINCREMENT,
-  first_name TEXT,last_name TEXT,course TEXT,age TEXT,phone TEXT,
-  imagePath TEXT,)''');
+  name TEXT,last_name TEXT,course TEXT,age TEXT,phone TEXT,
+  imagePath TEXT)''');
       },
       onUpgrade: (db, oldVersion, newVersion) async {
         if (oldVersion < 2) {

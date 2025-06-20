@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:students_record/home_page.dart';
 
 void main() {
-  runApp(myApp());
+  runApp(MyApp());
 }
 
-class myApp extends StatelessWidget {
-  const myApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
